@@ -10,8 +10,9 @@ from sklearn.linear_model import LinearRegression
 import json
 import bentoml
 import numpy as np
+from joblib import dump, load
 
-userToMovie="D:/CARNEGIE MELLON COURSES/Spring 2022/GitHub/group-project-s22-the-italian-job/10000 Ratings/movie_10000.json"
+userToMovie="movie_10000.json"
 with open(userToMovie, 'r') as dataset:
     data= json.load(dataset)
 
@@ -33,6 +34,7 @@ y=target.values
 lr=LinearRegression()
 lr.fit(x,y)
 #print(lr.predict([[10000000,500000,154,6.4,1000]]))
-bentoml.sklearn.save("movie_popularity", lr)
-runner = bentoml.sklearn.load_runner("movie_popularity:latest")
-print(runner.run(np.array([10000000,500000,154,6.4,1000])))
+dump(lr, "movie_popularity.joblib")
+#bentoml.sklearn.save("movie_popularity", lr)
+#runner = bentoml.sklearn.load_runner("movie_popularity:latest")
+#print(runner.run(np.array([10000000,500000,154,6.4,1000])))
