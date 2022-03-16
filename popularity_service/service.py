@@ -1,8 +1,6 @@
 import numpy as np
-from json import dumps
 from flask import Flask, jsonify, make_response, request, Response
 from joblib import load
-from sklearn.base import BaseEstimator
 
 MODEL_PATH = 'movie_popularity.joblib'
 
@@ -12,7 +10,6 @@ app = Flask(__name__)
 @app.route('/predict', methods=['POST'])
 def predict() -> Response:
 	request_data = request.json
-	print(request_data)
 	features = extract_features(request_data)
 	model_output = model_predictions(features)
 	response_data = jsonify({'predicted_popularity': model_output, 'model_info': str(model)})
@@ -27,7 +24,6 @@ def extract_features(request_data):
 		request_data['vote_average'],
 		request_data['vote_count']],
 	)
-	print(features)
 	return np.array([features])
 
 
