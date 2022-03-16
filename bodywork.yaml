@@ -14,9 +14,9 @@ stages:
       - joblib==1.1.0
       - scikit-learn==1.0.2
     cpu_request: 1.0
-    memory_request_mb: 500
+    memory_request_mb: 1024
     batch:
-      max_completion_time_seconds: 120
+      max_completion_time_seconds: 200
       retries: 2
   popularity_service:
     executable_module_path: popularity_service/service.py
