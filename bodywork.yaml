@@ -3,21 +3,21 @@ version: "1.1"
 pipeline:
   name: bodywork-serve-model
   docker_image: bodyworkml/bodywork-core:latest
-  DAG: train_model >> popularity_service
+  DAG: popularity_service
 
 stages:
-  train_model:
-    executable_module_path: train_model/train_model.py
-    requirements:
-      - json5==0.9.6
-      - pandas==1.4.1
-      - joblib==1.1.0
-      - scikit-learn==1.0.2
-    cpu_request: 1.0
-    memory_request_md: 500
-    batch:
-      max_completion_time_seconds: 120
-      retries: 2
+  # train_model:
+  #   executable_module_path: train_model/train_model.py
+  #   requirements:
+  #     - json5==0.9.6
+  #     - pandas==1.4.1
+  #     - joblib==1.1.0
+  #     - scikit-learn==1.0.2
+  #   cpu_request: 1.0
+  #   memory_request_md: 500
+  #   batch:
+  #     max_completion_time_seconds: 120
+  #     retries: 2
   popularity_service:
     executable_module_path: popularity_service/service.py
     requirements:
