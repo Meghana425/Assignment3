@@ -3,7 +3,7 @@ version: "1.1"
 pipeline:
   name: bodywork-serve-model
   docker_image: bodyworkml/bodywork-core:latest
-  DAG: train_model >> popularity_service
+  DAG: popularity_service
 
 stages:
   popularity_service:
