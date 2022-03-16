@@ -22,9 +22,9 @@ stages:
     executable_module_path: popularity_service/service.py
     requirements:
       - Flask==2.0.3
-      - joblib=1.1.0
+      - joblib==1.1.0
       - numpy==1.22.3
-      - scikit-learn=1.0.2
+      - scikit-learn==1.0.2
     cpu_request: 0.5
     memory_request_mb: 100
     service:
