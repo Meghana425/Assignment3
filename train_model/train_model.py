@@ -8,8 +8,6 @@ Created on Sat Mar 12 17:33:02 2022
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 import json
-import bentoml
-import numpy as np
 from joblib import dump, load
 
 MODEL_PATH = "../popularity_service/movie_popularity.joblib"

@@ -7,24 +7,24 @@ pipeline:
 
 stages:
 	train_model:
-		executable_module_path: train_model/model.py
+		executable_module_path: train_model/train_model.py
 		requirements:
-			- json==0.9.6
-			- pandas==1.1.4
-			- joblib==0.17.0
-			- scikit-learn==0.23.2
+			- json5==0.9.6
+			- pandas==1.4.1
+			- joblib==1.1.0
+			- scikit-learn==1.0.2
 		cpu_request: 1.0
 		memory_request_md: 500
 		batch:
 			max_completion_time_seconds: 120
 			retries: 2
 	popularity_service:
-		executable_module_path: popularity_service/bodywork_service.py
+		executable_module_path: popularity_service/service.py
 		requirements:
-			- Flask==1.1.2
-			- joblib=0.17.0
-			- numpy==1.19.4
-			- scikit-learn=0.23.2
+			- Flask==2.0.3
+			- joblib=1.1.0
+			- numpy==1.22.3
+			- scikit-learn=1.0.2
 		cpu_request: 0.5
 		memory_request_mb: 100
 		service:
