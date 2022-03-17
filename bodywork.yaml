@@ -24,8 +24,8 @@ stages:
       - Flask==2.0.3
       - joblib==1.1.0
       - numpy==1.22.3
-    cpu_request: 0.5
-    memory_request_mb: 100
+    cpu_request: 1
+    memory_request_mb: 1024
     service:
       max_startup_time_seconds: 30
       replicas: 1
