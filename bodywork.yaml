@@ -14,7 +14,7 @@ stages:
       - joblib==1.1.0
       - scikit-learn==1.0.2
     cpu_request: 1.0
-    memory_request_md: 500
+    memory_request_mb: 500
     batch:
       max_completion_time_seconds: 120
       retries: 2 
